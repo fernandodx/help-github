@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia Rápido de GitHub</title>
+    <title>Central de Guias de Estudo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,174 +12,45 @@
         body {
             font-family: 'Inter', sans-serif;
         }
-        .code-block {
-            background-color: #1a202c; /* Fundo do bloco de código mais escuro */
-            color: #e2e8f0;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            overflow-x: auto;
-            font-family: 'SF Mono', 'Courier New', Courier, monospace;
-            position: relative;
-            border: 1px solid #2d3748;
+        .guide-card {
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-        .command::before {
-            content: '$ ';
-            color: #a3bffa; /* Azul claro para o prompt */
-        }
-        .copy-button {
-            position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
-            background-color: #2d3748;
-            color: #cbd5e0;
-            border: 1px solid #4a5568;
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.25rem;
-            cursor: pointer;
-            font-size: 0.8rem;
-            opacity: 0.7;
-            transition: opacity 0.2s;
-        }
-        .copy-button:hover {
-            opacity: 1;
+        .guide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-300">
+<body class="bg-gray-900 text-gray-300 flex items-center justify-center min-h-screen">
 
-    <div class="container mx-auto p-4 md:p-8 max-w-4xl">
-        <header class="bg-gray-800 rounded-lg shadow-md p-6 mb-8 border-t-4 border-purple-500">
-            <h1 class="text-4xl font-bold text-white">Guia Rápido de GitHub</h1>
-            <p class="mt-2 text-lg text-gray-400">Um passo a passo para colaborar em projetos usando Fork, Clone, Push e Pull Request.</p>
+    <div class="container mx-auto p-4 md:p-8 max-w-4xl text-center">
+        <header class="mb-12">
+            <h1 class="text-5xl font-bold text-white">Central de Guias de Estudo</h1>
+            <p class="mt-4 text-xl text-gray-400">Selecione um guia abaixo para começar.</p>
         </header>
 
-        <main class="space-y-8">
-            <!-- Introduction -->
-            <section class="bg-gray-800 p-6 rounded-lg shadow-md">
-                <h2 class="text-2xl font-bold mb-4 border-b border-gray-700 pb-2 text-white">O Fluxo de Trabalho Essencial</h2>
-                <p>Este guia vai te ensinar o fluxo de trabalho mais comum para contribuir com um projeto no GitHub. A ideia é criar uma cópia sua do projeto (<span class="font-semibold text-purple-400">Fork</span>), baixar essa cópia para o seu computador (<span class="font-semibold text-purple-400">Clone</span>), fazer suas alterações, salvar (<span class="font-semibold text-purple-400">Commit</span>), enviar de volta para o seu GitHub (<span class="font-semibold text-purple-400">Push</span>) e, finalmente, sugerir que suas alterações sejam incluídas no projeto original (<span class="font-semibold text-purple-400">Pull Request</span>).</p>
-            </section>
-            
-            <!-- Step 0: Environment Setup -->
-            <section class="bg-gray-800 p-6 rounded-lg shadow-md">
-                <h2 class="text-2xl font-bold mb-4 border-b border-gray-700 pb-2 text-white">Passo 0: Preparando o Ambiente</h2>
-                <p class="mb-4">Antes de começar, certifique-se de que você tem o <a href="https://git-scm.com/downloads" target="_blank" class="text-blue-400 hover:underline font-semibold">Git instalado</a> no seu computador. Também é uma ótima prática manter seus projetos organizados. Nós recomendamos criar uma pasta chamada <code class="bg-gray-700 text-purple-400 p-1 rounded">github</code> na sua pasta de usuário.</p>
-                <p>Abra seu terminal (Git Bash no Windows, ou Terminal no Mac/Linux) e crie a pasta:</p>
-                <div class="code-block mt-2">
-                    <pre><code class="command">mkdir github</code></pre>
-                    <pre><code class="command">cd github</code></pre>
+        <main class="grid md:grid-cols-2 gap-8">
+            <!-- Card para Guia de GitHub -->
+            <a href="guia_github.html" class="guide-card block bg-gray-800 rounded-lg shadow-lg p-8 border-t-4 border-purple-500">
+                <div class="flex items-center justify-center mb-4">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-400"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
                 </div>
-                 <p class="mt-2 text-sm text-gray-500">Todos os comandos a seguir devem ser executados dentro desta pasta <code class="bg-gray-700 text-purple-400 p-1 rounded">github</code>.</p>
-            </section>
+                <h2 class="text-2xl font-bold text-white">Guia Rápido de GitHub</h2>
+                <p class="mt-2 text-gray-400">Aprenda o fluxo essencial de trabalho com Git e GitHub: Fork, Clone, Push e Pull Request.</p>
+            </a>
 
-            <!-- Step 1: Fork -->
-            <section class="bg-gray-800 p-6 rounded-lg shadow-md">
-                <h2 class="text-2xl font-bold mb-4 border-b border-gray-700 pb-2 text-white">Passo 1: Fazendo o "Fork"</h2>
-                <p class="mb-4">O "fork" é a sua cópia pessoal de um repositório. Você não pode editar o projeto original diretamente, então você cria uma cópia na sua conta do GitHub. Para isso, vá para a página do repositório que você quer copiar e clique no botão "Fork" no canto superior direito.</p>
-                 <img src="https://docs.github.com/assets/cb-32052/images/help/repository/fork-button.png" alt="[Imagem do Botão Fork do GitHub]" class="mt-4 border border-gray-700 rounded-lg shadow-sm w-full max-w-sm mx-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x150/1a202c/e2e8f0?text=Bot%C3%A3o+Fork+no+GitHub';">
-                 <p class="text-center text-sm text-gray-500 mt-2">O GitHub pode perguntar para qual conta você quer fazer o fork. Escolha sua conta pessoal.</p>
-            </section>
-            
-            <!-- Step 2: Clone -->
-            <section class="bg-gray-800 p-6 rounded-lg shadow-md">
-                <h2 class="text-2xl font-bold mb-4 border-b border-gray-700 pb-2 text-white">Passo 2: Clonando o Repositório (<code class="text-xl text-purple-400">clone</code>)</h2>
-                <p class="mb-4">Agora que você tem uma cópia do projeto na sua conta, você precisa baixá-la para o seu computador. Isso é chamado de "clonar".</p>
-                <ol class="list-decimal list-inside space-y-2">
-                    <li>Vá para a página do <strong>seu fork</strong> no GitHub (ex: <code class="bg-gray-700 text-purple-400 p-1 rounded">github.com/SEU-USUARIO/nome-do-repositorio</code>).</li>
-                    <li>Clique no botão verde "<> Code".</li>
-                    <li>Certifique-se de que a aba <strong>HTTPS</strong> está selecionada, pois o acesso SSH é bloqueado na faculdade.</li>
-                    <li>Copie a URL que aparece.</li>
-                </ol>
-                <img src="https://docs.github.com/assets/cb-19915/images/help/repository/code-button-https.png" alt="[Imagem do Botão para copiar a URL HTTPS do clone]" class="mt-4 border border-gray-700 rounded-lg shadow-sm w-full max-w-sm mx-auto" onerror="this.onerror=null;this.src='https://placehold.co/400x250/1a202c/e2e8f0?text=Copiando+a+URL+HTTPS';">
-                <p class="mt-4">Agora, no seu terminal (dentro da pasta <code class="bg-gray-700 text-purple-400 p-1 rounded">github</code>), use o comando <code class="font-semibold text-purple-400">git clone</code>:</p>
-                <div class="code-block mt-2">
-                    <pre><code class="command">git clone https://github.com/SEU-USUARIO/nome-do-repositorio.git</code></pre>
+            <!-- Card para Guia de HTML -->
+            <a href="guia_html.html" class="guide-card block bg-gray-800 rounded-lg shadow-lg p-8 border-t-4 border-orange-500">
+                <div class="flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-orange-400"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
                 </div>
-                <p class="mt-2 text-sm text-gray-500">Isso vai criar uma nova pasta com o nome do repositório e baixar todos os arquivos para ela.</p>
-            </section>
-
-            <!-- Step 3 & 4: Add & Commit -->
-            <section class="bg-gray-800 p-6 rounded-lg shadow-md">
-                <h2 class="text-2xl font-bold mb-4 border-b border-gray-700 pb-2 text-white">Passo 3 e 4: Fazendo e Salvando Alterações (<code class="text-xl text-purple-400">add</code> e <code class="text-xl text-purple-400">commit</code>)</h2>
-                <p class="mb-4">Com o projeto no seu computador, você já pode começar a trabalhar. </p>
-                <ol class="list-decimal list-inside space-y-2 mb-4">
-                    <li>Navegue para a pasta do projeto no terminal: <code class="bg-gray-700 text-purple-400 p-1 rounded">cd nome-do-repositorio</code></li>
-                    <li>Abra a pasta no seu editor de código (VS Code, Sublime, etc.) e faça as alterações necessárias: crie arquivos, edite, delete...</li>
-                </ol>
-                <p class="mb-4">Depois de fazer suas modificações, você precisa "salvá-las" no histórico do Git. Este é um processo de dois passos:</p>
-                
-                <h3 class="text-lg font-semibold mt-4 text-white">1. Adicionar as mudanças (<code class="font-semibold text-purple-400">git add</code>)</h3>
-                <p>Este comando adiciona suas alterações a uma "área de preparação" (staging area). Pense nisso como colocar os itens que você quer salvar em uma caixa antes de fechar a caixa.</p>
-                <div class="code-block mt-2">
-                    <pre><code class="command">git add .</code></pre>
-                </div>
-                <p class="mt-2 text-sm text-gray-500">O ponto (<code class="bg-gray-700 text-purple-400 p-1 rounded">.</code>) significa "adicione todos os arquivos modificados nesta pasta e subpastas".</p>
-
-                <h3 class="text-lg font-semibold mt-6 text-white">2. "Committar" as mudanças (<code class="font-semibold text-purple-400">git commit</code>)</h3>
-                <p>Este comando pega tudo que está na "área de preparação" e salva permanentemente no histórico do seu repositório local. É como fechar e etiquetar a caixa. Você deve sempre incluir uma mensagem clara descrevendo o que você fez.</p>
-                <div class="code-block mt-2">
-                    <pre><code class="command">git commit -m "Adiciona funcionalidade de login na página principal"</code></pre>
-                </div>
-                <p class="mt-2 text-sm text-gray-500">Sua mensagem deve ser curta e descritiva!</p>
-            </section>
-
-            <!-- Step 5: Push -->
-            <section class="bg-gray-800 p-6 rounded-lg shadow-md">
-                <h2 class="text-2xl font-bold mb-4 border-b border-gray-700 pb-2 text-white">Passo 5: Enviando para o GitHub (<code class="text-xl text-purple-400">push</code>)</h2>
-                <p class="mb-4">Até agora, suas alterações salvas (commits) estão apenas no seu computador. Para enviá-las para o seu repositório "forkado" no GitHub, use o comando <code class="font-semibold text-purple-400">git push</code>.</p>
-                <div class="code-block mt-2">
-                    <pre><code class="command">git push origin master</code></pre>
-                </div>
-                <ul class="mt-2 text-sm text-gray-500 list-disc list-inside">
-                    <li><code class="bg-gray-700 text-purple-400 p-1 rounded">origin</code> é o nome padrão do seu repositório remoto (o seu fork no GitHub).</li>
-                    <li><code class="bg-gray-700 text-purple-400 p-1 rounded">master</code> é o nome da branch para a qual você está enviando.</li>
-                </ul>
-            </section>
-            
-            <!-- Step 6: Pull Request -->
-            <section class="bg-gray-800 p-6 rounded-lg shadow-md">
-                <h2 class="text-2xl font-bold mb-4 border-b border-gray-700 pb-2 text-white">Passo 6: Criando o "Pull Request" (PR)</h2>
-                <p class="mb-4">O passo final! Um Pull Request é o seu pedido para que o dono do repositório original incorpore as suas mudanças. </p>
-                <ol class="list-decimal list-inside space-y-2">
-                    <li>Vá para a página do <strong>seu fork</strong> no GitHub.</li>
-                    <li>Você provavelmente verá uma mensagem amarela com um botão "Contribute" ou "Pull request". Clique nele!</li>
-                    <li>Se não vir a mensagem, vá para a aba "Pull requests" e clique em "New pull request".</li>
-                </ol>
-                 <img src="https://docs.github.com/assets/cb-126231/images/help/pull_requests/open-pull-request-tab.png" alt="[Imagem da aba de Pull Request no GitHub]" class="my-4 border border-gray-700 rounded-lg shadow-sm w-full max-w-2xl mx-auto" onerror="this.onerror=null;this.src='https://placehold.co/700x300/1a202c/e2e8f0?text=Criando+um+Pull+Request';">
-                <ol class="list-decimal list-inside space-y-2" start="4">
-                    <li>Revise as suas alterações. O GitHub vai mostrar o repositório original à esquerda e o seu fork à direita.</li>
-                    <li>Escreva um título claro e uma descrição para o seu PR, explicando o que você fez e por quê.</li>
-                    <li>Clique em "Create pull request".</li>
-                </ol>
-                <p class="mt-4 font-semibold text-green-400">Pronto! Agora é só aguardar o feedback do dono do projeto.</p>
-                <img src="https://media.giphy.com/media/o0vwzuFklc6D6/giphy.gif" alt="[GIF de um esquilo enviando um pacote]" class="mt-4 mx-auto rounded-lg" style="max-width: 250px;">
-            </section>
-            
-            <!-- Bonus: Sync Fork -->
-            <section class="bg-gray-800 p-6 rounded-lg shadow-md">
-                <h2 class="text-2xl font-bold mb-4 border-b border-gray-700 pb-2 text-white">Bônus: Mantendo seu Fork Sincronizado (<code class="text-xl text-purple-400">pull</code>)</h2>
-                <p class="mb-4">Enquanto você trabalha, o repositório original pode ser atualizado. Para evitar problemas, é vital manter seu fork e sua cópia local atualizados. O jeito mais fácil é pelo próprio site do GitHub.</p>
-                
-                <h3 class="text-lg font-semibold mt-4 text-white">1. Sincronize seu Fork no GitHub</h3>
-                <ol class="list-decimal list-inside space-y-2">
-                    <li>Vá para a página principal do <strong>seu fork</strong> no GitHub.</li>
-                    <li>Clique no botão "Sync fork".</li>
-                    <li>No menu que aparecer, clique em "Update branch".</li>
-                </ol>
-                <img src="https://docs.github.com/assets/cb-133544/images/help/repository/sync-fork-button.png" alt="[Imagem do botão Sync Fork no GitHub]" class="my-4 border border-gray-700 rounded-lg shadow-sm w-full max-w-md mx-auto" onerror="this.onerror=null;this.src='https://placehold.co/500x200/1a202c/e2e8f0?text=Bot%C3%A3o+Sync+Fork';">
-                
-                <h3 class="text-lg font-semibold mt-6 text-white">2. Atualize sua Cópia Local</h3>
-                <p>Depois de sincronizar no site, as atualizações estão no seu repositório na nuvem, mas ainda não no seu computador. Use o comando <code class="font-semibold text-purple-400">git pull</code> para baixá-las.</p>
-                <div class="code-block mt-2">
-                    <pre><code class="command">git pull</code></pre>
-                </div>
-                 <p class="mt-2 text-sm text-gray-500">Faça isso sempre antes de começar a codificar para garantir que você está na versão mais recente!</p>
-            </section>
-
+                <h2 class="text-2xl font-bold text-white">Guia de Referência HTML</h2>
+                <p class="mt-2 text-gray-400">Entenda a teoria e as principais tags para estruturar o conteúdo de suas páginas web.</p>
+            </a>
         </main>
         
-        <footer class="text-center text-gray-500 mt-8 py-4">
-            <p>Criado para facilitar a vida universitária. Aproveite!!! Do seu Prof. Fernando Dias </p>
+        <footer class="text-center text-gray-500 mt-16 py-4">
+            <p>Documentação de apoio para aulas.</p>
         </footer>
     </div>
 </body>
