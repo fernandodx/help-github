@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Referência CSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .code-block {
+            background-color: #1a202c;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            font-family: 'SF Mono', 'Courier New', Courier, monospace;
+            position: relative;
+            border: 1px solid #2d3748;
+            white-space: pre;
+        }
+        .infographic-section {
+            background-color: #1f2937;
+            border-left: 4px solid #38bdf8; /* Azul */
+        }
+        .infographic-section h2, .infographic-section h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .infographic-section svg {
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+        <header class="bg-gray-800 rounded-lg shadow-lg p-6 mb-8 border-t-4 border-sky-500">
+            <h1 class="text-4xl font-bold text-white text-center">Guia de Referência CSS</h1>
+            <p class="mt-2 text-lg text-gray-400 text-center">Aprenda a estilizar suas páginas web, do básico ao layout avançado.</p>
+        </header>
+
+        <main class="space-y-10">
+            
+            <!-- O que é CSS? -->
+            <section class="infographic-section p-6 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold mb-4 border-b border-gray-700 pb-3 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-sky-400"><path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9-9 9-9-1.8-9-9 1.8-9 9-9z"></path></svg>
+                    O que é CSS?
+                </h2>
+                <p class="mb-4">CSS significa <strong class="text-sky-400">Cascading Style Sheets</strong> (Folhas de Estilo em Cascata). É a linguagem que usamos para <strong class="text-sky-400">estilizar</strong> uma página web. Enquanto o HTML é o esqueleto, o CSS é a pele, as roupas e a aparência.</p>
+                <p class="mb-4">A principal vantagem do CSS é a separação de responsabilidades: o HTML cuida da estrutura do conteúdo, e o CSS cuida da apresentação visual. Isso torna o código mais limpo, fácil de manter e reutilizável.</p>
+                <div class="mt-6 p-4 bg-gray-900 rounded-lg border border-gray-700">
+                    <h3 class="font-semibold text-white">Anatomia de uma Regra CSS</h3>
+                    <div class="code-block mt-2">p {
+    color: #e2e8f0;
+    font-size: 16px;
+}</div>
+                    <ul class="text-sm mt-2 space-y-1">
+                        <li><code class="bg-gray-700 text-sky-400 p-1 rounded">p</code>: O <strong class="text-white">Seletor</strong> (alvo da regra).</li>
+                        <li><code class="bg-gray-700 p-1 rounded">{ ... }</code>: O <strong class="text-white">Bloco de Declaração</strong>.</li>
+                        <li><code class="bg-gray-700 p-1 rounded">color: #e2e8f0;</code>: Uma <strong class="text-white">Declaração</strong>, composta por uma Propriedade (`color`) e um Valor (`#e2e8f0`).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Seletores e Especificidade -->
+            <section class="infographic-section p-6 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold mb-4 border-b border-gray-700 pb-3 text-white">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-sky-400"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    Seletores e Especificidade
+                </h2>
+                <p class="mb-4">Seletores são o coração do CSS. Eles definem quais elementos HTML serão estilizados. A <strong class="text-sky-400">Especificidade</strong> é a regra que o navegador usa para decidir qual estilo aplicar quando múltiplos seletores miram no mesmo elemento.</p>
+                <div class="grid md:grid-cols-2 gap-6 mt-4">
+                    <div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Seletores Básicos</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                           <li><strong class="text-white">Tipo:</strong> `p`, `h1`, `div` (seleciona pela tag)</li>
+                           <li><strong class="text-white">Classe:</strong> `.minha-classe` (seleciona pelo atributo `class`)</li>
+                           <li><strong class="text-white">ID:</strong> `#meu-id` (seleciona pelo atributo `id`, deve ser único)</li>
+                        </ul>
+                    </div>
+                     <div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Especificidade (Hierarquia)</h3>
+                        <p class="text-sm">Regras mais específicas sobrescrevem as menos específicas.</p>
+                        <ol class="list-decimal list-inside text-sm mt-2 space-y-1">
+                            <li>Estilos `inline` (atributo `style`) - <span class="text-red-400">Mais forte</span></li>
+                            <li>ID (`#id`)</li>
+                            <li>Classe (`.classe`), Atributo (`[type="..."]`), Pseudo-classe (`:hover`)</li>
+                            <li>Tipo (`div`), Pseudo-elemento (`::before`) - <span class="text-green-400">Mais fraco</span></li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="code-block mt-4">/* Classe é mais específica que tipo */
+.titulo { color: blue; } /* Vence */
+h1 { color: red; }       /* Perde */
+
+/* ID é mais específico que classe */
+#titulo-principal { color: green; } /* Vence */
+.titulo { color: blue; }            /* Perde */</div>
+            </section>
+            
+            <!-- Box Model -->
+            <section class="infographic-section p-6 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold mb-4 border-b border-gray-700 pb-3 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-sky-400"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    O Box Model
+                </h2>
+                <p class="mb-4">Todo elemento em uma página web é uma caixa retangular. O Box Model descreve como essa caixa é composta:</p>
+                <ul class="list-disc list-inside space-y-2 mb-4">
+                    <li><strong class="text-white">Content:</strong> O conteúdo real (texto, imagem).</li>
+                    <li><strong class="text-white">Padding:</strong> Espaçamento interno, entre o conteúdo e a borda.</li>
+                    <li><strong class="text-white">Border:</strong> A borda que envolve o conteúdo e o padding.</li>
+                    <li><strong class="text-white">Margin:</strong> Espaçamento externo, entre a borda e os outros elementos.</li>
+                </ul>
+                 <div class="code-block">.caixa {
+    width: 200px;
+    padding: 20px; /* 20px em todos os lados */
+    border: 2px solid #38bdf8;
+    margin: 30px; /* 30px em todos os lados */
+    box-sizing: border-box; /* DICA: Isso faz o padding e a borda ficarem DENTRO do width! */
+}</div>
+            </section>
+
+            <!-- Flexbox -->
+            <section class="infographic-section p-6 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold mb-4 border-b border-gray-700 pb-3 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-sky-400"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line></svg>
+                    Layout com Flexbox
+                </h2>
+                <p class="mb-4">Flexbox é um modelo de layout <strong class="text-sky-400">unidimensional</strong>, projetado para alinhar e distribuir espaço entre itens em um container, mesmo quando o tamanho deles é desconhecido. É perfeito para componentes e layouts em uma única direção (linha ou coluna).</p>
+                <div class="code-block">.container-flex {
+    display: flex;
+    justify-content: space-between; /* Alinha no eixo principal (horizontal) */
+    align-items: center; /* Alinha no eixo cruzado (vertical) */
+}</div>
+                <div class="grid md:grid-cols-2 gap-6 mt-4">
+                    <div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Propriedades do Container (`pai`)</h3>
+                        <ul class="list-disc list-inside text-sm">
+                           <li>`display: flex;`</li>
+                           <li>`flex-direction: row | column;`</li>
+                           <li>`justify-content:` (alinhamento horizontal)</li>
+                           <li>`align-items:` (alinhamento vertical)</li>
+                           <li>`flex-wrap: wrap;`</li>
+                        </ul>
+                    </div>
+                     <div>
+                        <h3 class="text-xl font-semibold text-white mb-2">Propriedades dos Itens (`filhos`)</h3>
+                        <ul class="list-disc list-inside text-sm">
+                           <li>`flex-grow: 1;` (para ocupar espaço)</li>
+                           <li>`flex-shrink: 0;` (para não encolher)</li>
+                           <li>`flex-basis: 200px;` (tamanho inicial)</li>
+                           <li>`order: -1;` (muda a ordem visual)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Grid -->
+            <section class="infographic-section p-6 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold mb-4 border-b border-gray-700 pb-3 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-sky-400"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                    Layout com Grid
+                </h2>
+                <p class="mb-4">Grid é um modelo de layout <strong class="text-sky-400">bidimensional</strong> (linhas e colunas), tornando-o ideal para layouts complexos de página inteira. Você define um "grid" e posiciona os elementos filhos dentro dele.</p>
+                <div class="code-block">.container-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr; /* Três colunas, a última com o dobro do tamanho */
+    gap: 20px; /* Espaço entre as células do grid */
+}
+
+.item-grid {
+    grid-column: 1 / 3; /* Ocupa da coluna 1 até a 3 */
+    grid-row: 2; /* Fica na linha 2 */
+}</div>
+                <div class="mt-4">
+                    <h3 class="text-xl font-semibold text-white mb-2">Principais Conceitos</h3>
+                    <ul class="list-disc list-inside text-sm">
+                        <li>`display: grid;`</li>
+                        <li>`grid-template-columns / rows:` Define o número e o tamanho das colunas/linhas.</li>
+                        <li>`fr`: Uma unidade de fração que distribui o espaço disponível.</li>
+                        <li>`gap`: O espaçamento entre as linhas e colunas.</li>
+                        <li>`grid-column / row:` Especifica em quais linhas/colunas um item deve começar e terminar.</li>
+                    </ul>
+                </div>
+            </section>
+
+             <!-- Referências -->
+            <section class="infographic-section p-6 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold mb-4 border-b border-gray-700 pb-3 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-sky-400"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    Referências para Estudo
+                </h2>
+                <p class="mb-4">CSS é vasto e poderoso. Use estes recursos para aprofundar seus conhecimentos e consultar propriedades.</p>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS" target="_blank" class="text-blue-400 hover:underline font-semibold">MDN Web Docs - Guia de CSS</a>: A principal referência para CSS na web.</li>
+                    <li><a href="https://css-tricks.com/guides/" target="_blank" class="text-blue-400 hover:underline font-semibold">CSS-Tricks Guides</a>: Guias visuais fantásticos, especialmente para Flexbox e Grid.</li>
+                </ul>
+            </section>
+
+        </main>
+        
+        <footer class="text-center text-gray-500 mt-10 py-4">
+            <p>Use este guia como uma referência rápida. A prática leva à perfeição!</p>
+        </footer>
+    </div>
+</body>
+</html>
