@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Referência Flutter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .code-block {
+            background-color: #1a202c;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            font-family: 'SF Mono', 'Courier New', Courier, monospace;
+            position: relative;
+            border: 1px solid #2d3748;
+            white-space: pre;
+        }
+        .infographic-section {
+            background-color: #1f2937;
+            border-left: 4px solid #0ea5e9; /* Azul para Flutter */
+        }
+        .infographic-section h2, .infographic-section h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .infographic-section svg {
+            flex-shrink: 0;
+        }
+        .dart-keyword { color: #c586c0; }
+        .dart-class { color: #4ec9b0; }
+        .dart-function { color: #dcdcaa; }
+        .dart-string { color: #ce9178; }
+        .dart-comment { color: #6a9955; }
+        .dart-property { color: #9cdcfe; }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+        <header class="bg-gray-800 rounded-lg shadow-lg p-6 mb-8 border-t-4 border-sky-500">
+            <h1 class="text-4xl font-bold text-white text-center">Guia de Referência Flutter</h1>
+            <p class="mt-2 text-lg text-gray-400 text-center">Construa apps nativos para mobile, web e desktop a partir de uma única base de código.</p>
+        </header>
+
+        <main class="space-y-10">
+            
+            <!-- O que é Flutter? -->
+            <section class="infographic-section p-6 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold mb-4 border-b border-gray-700 pb-3 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-sky-400"><path d="M12 19l-7-7 7-7 7 7-7 7z"></path></svg>
+                    O Princípio Fundamental: Tudo é um Widget
+                </h2>
+                <p class="mb-4">No Flutter, quase tudo é um <strong class="text-sky-400">Widget</strong>. Um widget pode ser um botão, um texto, um layout de colunas, um ícone, ou até mesmo a aplicação inteira. Eles são os blocos de construção da sua interface de usuário (UI).</p>
+                <p>A UI do seu app é construída como uma <strong class="text-sky-400">árvore de widgets</strong>. Cada widget é aninhado dentro de outro para criar layouts complexos. O Flutter então desenha essa árvore na tela.</p>
+            </section>
+
+            <!-- Estrutura de um App Flutter -->
+            <section class="infographic-section p-6 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold mb-4 border-b border-gray-700 pb-3 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-sky-400"><path d="M6 17H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><path d="M12 21v-4"></path></svg>
+                    Estrutura de um App Básico
+                </h2>
+                <p class="mb-4">Todo app Flutter começa com a função <code class="bg-gray-700 p-1 rounded">main()</code>, que é o ponto de entrada. Dentro dela, a função <code class="bg-gray-700 p-1 rounded">runApp()</code> é chamada para iniciar a árvore de widgets.</p>
+                <div class="space-y-4">
+                    <p><code class="bg-gray-700 p-1 rounded">MaterialApp</code>: Geralmente é o widget raiz do app. Ele configura o tema, as rotas de navegação e outros aspectos visuais seguindo as diretrizes do Material Design.</p>
+                    <p><code class="bg-gray-700 p-1 rounded">ThemeData</code>: Define o tema visual do seu aplicativo, como cores primárias, fontes e estilos de componentes.</p>
+                </div>
+                <div class="code-block mt-4">
+<span class="dart-comment">// main.dart</span>
+<span class="dart-keyword">import</span> <span class="dart-string">'package:flutter/material.dart'</span>;
+
+<span class="dart-keyword">void</span> <span class="dart-function">main</span>() {
+  <span class="dart-function">runApp</span>(<span class="dart-keyword">const</span> <span class="dart-class">MyApp</span>());
+}
+
+<span class="dart-keyword">class</span> <span class="dart-class">MyApp</span> <span class="dart-keyword">extends</span> <span class="dart-class">StatelessWidget</span> {
+  <span class="dart-keyword">const</span> <span class="dart-class">MyApp</span>({<span class="dart-class">Key</span>? key}) : <span class="dart-keyword">super</span>(key: key);
+
+  <span class="dart-property">@override</span>
+  <span class="dart-class">Widget</span> <span class="dart-function">build</span>(<span class="dart-class">BuildContext</span> context) {
+    <span class="dart-keyword">return</span> <span class="dart-class">MaterialApp</span>(
+      <span class="dart-property">title</span>: <span class="dart-string">'Recipe Calculator'</span>,
+      <span class="dart-property">theme</span>: <span class="dart-class">ThemeData</span>(
+        <span class="dart-property">primarySwatch</span>: <span class="dart-class">Colors</span>.blue,
+      ),
+      <span class="dart-property">home</span>: <span class="dart-keyword">const</span> <span class="dart-class">MyHomePage</span>(title: <span class="dart-string">'Recipe Calculator'</span>),
+    );
+  }
+}
+                </div>
+            </section>
+
+            <!-- Anatomia de uma Tela com Scaffold -->
+            <section class="infographic-section p-6 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold mb-4 border-b border-gray-700 pb-3 text-white">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-sky-400"><rect x="2" y="3" width="20" height="18" rx="2"></rect><path d="M2 8h20"></path><path d="M7 14v2"></path></svg>
+                    Anatomia de uma Tela: O Widget Scaffold
+                </h2>
+                <p class="mb-4">O widget <code class="bg-gray-700 p-1 rounded">Scaffold</code> fornece uma estrutura visual padrão para as telas de um app Material Design. Ele facilita a adição de elementos comuns de UI.</p>
+                 <img src="https://i.imgur.com/nJb7wYo.png" alt="Diagrama da estrutura de um Scaffold" class="rounded-lg bg-gray-700 p-2 my-4">
+                <ul class="list-disc list-inside space-y-2 mb-4">
+                    <li><code class="bg-gray-700 p-1 rounded">appBar</code>: A barra de ferramentas no topo da tela.</li>
+                    <li><code class="bg-gray-700 p-1 rounded">body</code>: O conteúdo principal da tela, localizado abaixo da appBar.</li>
+                    <li><code class="bg-gray-700 p-1 rounded">floatingActionButton</code>: Um botão flutuante, geralmente usado para ações primárias.</li>
+                    <li><code class="bg-gray-700 p-1 rounded">bottomNavigationBar</code>: Uma barra de navegação na parte inferior da tela.</li>
+                    <li><code class="bg-gray-700 p-1 rounded">drawer</code>: Um menu lateral que desliza a partir da borda.</li>
+                </ul>
+                 <p><strong class="text-sky-400">Dica:</strong> Envolva seu Scaffold com um widget <code class="bg-gray-700 p-1 rounded">SafeArea</code> para garantir que seu conteúdo não seja cortado por entalhes (notches) ou barras do sistema.</p>
+            </section>
+
+            <!-- A Árvore de Widgets -->
+            <section class="infographic-section p-6 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold mb-4 border-b border-gray-700 pb-3 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-sky-400"><path d="M10 5L3 12l7 7"></path><path d="M14 19l7-7-7-7"></path><path d="M12 2v20"></path></svg>
+                    Montando Layouts: A Árvore de Widgets
+                </h2>
+                <p class="mb-4">Layouts são definidos aninhando widgets. A hierarquia visual do seu app é um reflexo direto de como sua árvore de widgets é estruturada no código.</p>
+                <img src="https://i.imgur.com/mU1CqgM.png" alt="Diagrama da árvore de widgets do Flutter" class="rounded-lg bg-gray-700 p-2 my-4">
+                <h3 class="text-xl font-semibold text-white mb-2">Widgets de Layout Comuns:</h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><code class="bg-gray-700 p-1 rounded">Column</code>: Organiza widgets filhos em uma coluna vertical.</li>
+                    <li><code class="bg-gray-700 p-1 rounded">Row</code>: Organiza widgets filhos em uma linha horizontal.</li>
+                    <li><code class="bg-gray-700 p-1 rounded">Card</code>: Cria um painel com cantos arredondados e sombra, seguindo o padrão Material.</li>
+                    <li><code class="bg-gray-700 p-1 rounded">ListView</code>: Cria uma lista rolável de widgets. Ideal para exibir uma grande quantidade de itens.</li>
+                    <li><code class="bg-gray-700 p-1 rounded">Container</code>: Um widget versátil para personalização, permitindo definir margens, preenchimento, bordas, cores de fundo, etc.</li>
+                </ul>
+            </section>
+
+             <!-- StatelessWidget vs StatefulWidget -->
+            <section class="infographic-section p-6 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold mb-4 border-b border-gray-700 pb-3 text-white">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-sky-400"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                    Stateless vs. StatefulWidget
+                </h2>
+                <p class="mb-4">Os widgets se dividem em duas categorias principais:</p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="font-semibold text-white text-lg">StatelessWidget</h3>
+                        <p class="text-sm">Widgets que <strong class="text-sky-400">não mudam</strong> depois de serem construídos. Seus valores são imutáveis. São usados para partes da UI que não precisam ser atualizadas dinamicamente, como um ícone, um texto fixo ou um rótulo.</p>
+                    </div>
+                     <div>
+                        <h3 class="font-semibold text-white text-lg">StatefulWidget</h3>
+                        <p class="text-sm">Widgets que <strong class="text-sky-400">podem mudar</strong> durante o tempo de vida do app em resposta a interações do usuário ou recebimento de dados. Eles mantêm um "estado" que pode ser alterado. Quando o estado muda (usando <code class="bg-gray-700 p-1 rounded">setState()</code>), o widget é redesenhado na tela.</p>
+                    </div>
+                </div>
+                 <div class="code-block mt-4">
+<span class="dart-comment">// Exemplo: um contador que usa um StatefulWidget</span>
+<span class="dart-keyword">class</span> <span class="dart-class">Counter</span> <span class="dart-keyword">extends</span> <span class="dart-class">StatefulWidget</span> { ... }
+
+<span class="dart-keyword">class</span> <span class="dart-class">_CounterState</span> <span class="dart-keyword">extends</span> <span class="dart-class">State</span>&lt;<span class="dart-class">Counter</span>&gt; {
+  <span class="dart-class">int</span> _count = 0;
+
+  <span class="dart-keyword">void</span> <span class="dart-function">_increment</span>() {
+    <span class="dart-function">setState</span>(() { <span class="dart-comment">// Notifica o Flutter que o estado mudou e a UI precisa ser redesenhada</span>
+      _count++;
+    });
+  }
+  ...
+}
+                </div>
+            </section>
+
+            <!-- Referências -->
+            <section class="infographic-section p-6 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold mb-4 border-b border-gray-700 pb-3 text-white">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-sky-400"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                    Referências para Estudo
+                </h2>
+                <ul class="list-disc list-inside space-y-2">
+                    <li><a href="https://docs.flutter.dev/" target="_blank" class="text-blue-400 hover:underline font-semibold">Documentação Oficial do Flutter</a>: A fonte definitiva para tudo sobre Flutter.</li>
+                    <li><a href="https://docs.flutter.dev/reference/widgets" target="_blank" class="text-blue-400 hover:underline font-semibold">Catálogo de Widgets</a>: Explore a vasta biblioteca de widgets disponíveis.</li>
+                </ul>
+            </section>
+        </main>
+        
+        <footer class="text-center text-gray-500 mt-10 py-4">
+            <p>Construa interfaces incríveis com a simplicidade e o poder dos widgets.</p>
+        </footer>
+    </div>
+</body>
+</html>
