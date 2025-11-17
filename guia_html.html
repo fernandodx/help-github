@@ -35,6 +35,13 @@
         .infographic-section svg {
             flex-shrink: 0;
         }
+        .step-image {
+            border-radius: 0.5rem;
+            border: 2px solid #374151; /* gray-700 */
+            margin-top: 0.75rem;
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-300">
@@ -164,7 +171,56 @@
 &lt;/div&gt;</code></div>
 
             </section>
+            
+            <!-- NOVA SEÇÃO: Publicando no GitHub Pages -->
+            <section class="infographic-section p-6 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold mb-4 border-b border-gray-700 pb-3 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-orange-400"><path d="M2 12a10 10 0 1 1 20 0 10 10 0 0 1-20 0Z"></path><path d="M12 2a10 10 0 0 1 10 10"></path><path d="M12 2a10 10 0 0 0-10 10"></path><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    Como Publicar seu Site (Grátis!) com GitHub Pages
+                </h2>
+                <p class="mb-4">Você criou seu site HTML e quer mostrá-lo ao mundo? O GitHub Pages permite hospedar sites estáticos (HTML, CSS, JS) gratuitamente, direto do seu repositório.</p>
+                
+                <h3 class="text-xl font-semibold text-white mb-2 mt-6">Pré-requisitos:</h3>
+                <ul class="list-disc list-inside space-y-2 text-sm mb-4">
+                    <li>Seu repositório no GitHub deve estar <strong class="text-white">público</strong>.</li>
+                    <li>Seus arquivos (HTML, CSS, etc.) devem estar no repositório (via <code class="bg-gray-700 p-1 rounded">git push</code>).</li>
+                    <li>Sua página principal <strong class="text-orange-400">DEVE</strong> se chamar <code class="bg-gray-700 p-1 rounded">index.html</code>. O GitHub Pages procura por este nome de arquivo automaticamente.</li>
+                </ul>
 
+                <h3 class="text-xl font-semibold text-white mb-2 mt-6">Passo a Passo Detalhado:</h3>
+                <ol class="list-decimal list-inside space-y-4 ml-4">
+                    <li>
+                        <strong class="text-white">Passo 1: Vá para "Settings" (Configurações)</strong><br>
+                        Na página principal do seu repositório no GitHub, clique na aba <code class="bg-gray-700 p-1 rounded">Settings</code>, que fica no menu superior, perto de "Code" e "Pull Requests".
+                    </li>
+                    <li>
+                        <strong class="text-white">Passo 2: Encontre a Seção "Pages"</strong><br>
+                        Na barra lateral esquerda que apareceu, clique em <code class="bg-gray-700 p-1 rounded">Pages</code> (Páginas).
+                    </li>
+                    <li>
+                        <strong class="text-white">Passo 3: Configure a Fonte (Source)</strong><br>
+                        - Em "Build and deployment", na opção "Source", selecione <code class="bg-gray-700 p-1 rounded">Deploy from a branch</code>.<br>
+                        - Em "Branch", selecione a branch onde seu código está (geralmente <code class="bg-gray-700 p-1 rounded">main</code> ou <code class="bg-gray-700 p-1 rounded">master</code>).<br>
+                        - Deixe o seletor de pasta como <code class="bg-gray-700 p-1 rounded">/root</code> e clique em <code class="bg-gray-700 p-1 rounded">Save</code>.
+                    </li>
+                    <li>
+                        <strong class="text-white">Passo 4: Aguarde a Mágica</strong><br>
+                        O GitHub começará a publicar seu site. Isso pode levar um ou dois minutos. A página será recarregada e, no topo, você verá uma mensagem: <code class="bg-emerald-800 text-emerald-300 p-1 rounded">"Your site is live at..."</code> (Seu site está no ar em...).
+                    </li>
+                    <li>
+                        <strong class="text-white">Passo 5: Visite seu Site!</strong><br>
+                        Seu site estará disponível publicamente no link fornecido, que terá o formato: <br>
+                        <code class="text-sm bg-gray-700 p-1 rounded text-center block w-full mt-2">https://&lt;seu-username&gt;.github.io/&lt;nome-do-repositorio&gt;/</code>
+                    </li>
+                </ol>
+                
+                <h3 class="text-xl font-semibold text-white mb-2 mt-6">Não funcionou? (Dicas)</h3>
+                <ul class="list-disc list-inside space-y-2 text-sm mb-4">
+                    <li><strong class="text-white">Erro 404 (Não Encontrado):</strong> Quase sempre, isso acontece porque você não tem um arquivo chamado <code class="bg-gray-700 p-1 rounded">index.html</code> na pasta raiz do seu projeto. Verifique o nome!</li>
+                    <li><strong class="text-white">Site não atualiza:</strong> Fez um novo <code class="bg-gray-700 p-1 rounded">git push</code> e nada mudou? Espere 1 ou 2 minutos. O GitHub Pages leva um tempinho para atualizar (cache).</li>
+                </ul>
+            </section>
+            
             <!-- Referências -->
             <section class="infographic-section p-6 rounded-lg shadow-lg">
                 <h2 class="text-3xl font-bold mb-4 border-b border-gray-700 pb-3 text-white">
@@ -185,4 +241,3 @@
     </div>
 </body>
 </html>
-
