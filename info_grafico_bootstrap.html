@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infográfico: Bootstrap & Responsividade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Cores Oficiais do Bootstrap para Autenticidade */
+        :root {
+            --bs-primary: #0d6efd;
+            --bs-secondary: #6c757d;
+            --bs-success: #198754;
+            --bs-info: #0dcaf0;
+            --bs-warning: #ffc107;
+            --bs-danger: #dc3545;
+            --bs-purple: #7952b3; /* Cor da marca Bootstrap */
+            --bs-dark: #212529;
+            --bs-light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+            color: var(--bs-dark);
+        }
+
+        .font-mono {
+            font-family: 'Fira Code', monospace;
+        }
+
+        .bs-purple-bg { background-color: var(--bs-purple); }
+        .bs-primary-bg { background-color: var(--bs-primary); }
+        .bs-success-bg { background-color: var(--bs-success); }
+        .bs-warning-bg { background-color: var(--bs-warning); }
+        .bs-danger-bg { background-color: var(--bs-danger); }
+        
+        .bs-purple-text { color: var(--bs-purple); }
+
+        /* Estilo de Grid Visual */
+        .grid-demo-col {
+            background-color: rgba(13, 110, 253, 0.15);
+            border: 1px solid rgba(13, 110, 253, 0.3);
+            color: var(--bs-primary);
+            text-align: center;
+            padding: 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 4px;
+        }
+
+        .shadow-paper {
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Classes utilitárias para imitar componentes Bootstrap visualmente usando Tailwind */
+        .fake-btn {
+            display: inline-block;
+            font-weight: 400;
+            line-height: 1.5;
+            text-align: center;
+            text-decoration: none;
+            vertical-align: middle;
+            user-select: none;
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            border-radius: .25rem;
+            transition: color .15s ease-in-out,background-color .15s ease-in-out;
+        }
+        .fake-btn-primary { background-color: var(--bs-primary); color: white; }
+        .fake-btn-success { background-color: var(--bs-success); color: white; }
+        .fake-btn-danger { background-color: var(--bs-danger); color: white; }
+    </style>
+</head>
+<body class="p-4 md:p-8 flex justify-center">
+
+    <!-- Container Principal do Infográfico (Formato A4 alongado) -->
+    <div class="max-w-3xl w-full bg-white shadow-paper rounded-xl overflow-hidden border border-gray-200">
+        
+        <!-- CABEÇALHO -->
+        <header class="bs-purple-bg text-white p-8 text-center relative overflow-hidden">
+            <!-- Icone de fundo decorativo -->
+            <svg class="absolute top-[-20px] left-[-20px] w-40 h-40 opacity-10 rotate-12" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M1.333 0h13.334A1.333 1.333 0 0 1 16 1.333v13.334A1.333 1.333 0 0 1 14.667 16H1.333A1.333 1.333 0 0 1 0 14.667V1.333A1.333 1.333 0 0 1 1.333 0zM2.5 4a.5.5 0 0 0 0 1h11a.5.5 0 0 0 0-1h-11zm0 3a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1h-6zm0 3a.5.5 0 0 0 0 1h11a.5.5 0 0 0 0-1h-11z"/>
+            </svg>
+            
+            <div class="relative z-10">
+                <h3 class="text-sm uppercase tracking-widest font-semibold opacity-80 mb-2">Guia Rápido</h3>
+                <h1 class="text-5xl md:text-6xl font-extrabold mb-2">Bootstrap</h1>
+                <p class="text-xl md:text-2xl font-light">O Rei da Responsividade</p>
+            </div>
+            
+            <div class="absolute bottom-0 right-0 p-4 opacity-20">
+                <span class="text-6xl font-bold">B5</span>
+            </div>
+        </header>
+
+        <!-- SEÇÃO 1: O QUE É? -->
+        <section class="p-8 border-b border-gray-100">
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <div class="flex-1">
+                    <h2 class="text-2xl font-bold bs-purple-text mb-3 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                        O que é?
+                    </h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        É o framework HTML, CSS e JS mais popular do mundo. Ele fornece componentes prontos (botões, menus, cards) e um poderoso sistema de grid para criar sites que funcionam em qualquer dispositivo.
+                    </p>
+                    <div class="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg text-sm text-yellow-800 flex items-center gap-3">
+                         <span class="text-2xl">💡</span>
+                         <span>"Escreva uma vez, funcione em todo lugar."</span>
+                    </div>
+                </div>
+                <!-- GIF 1: Coding -->
+                <div class="w-full md:w-1/3">
+                    <img src="https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif" alt="Coding Cat" class="rounded-lg shadow-md w-full h-auto object-cover" onerror="this.src='https://placehold.co/400x300?text=GIF+Here'">
+                    <p class="text-center text-xs text-gray-400 mt-2">Você codando com Bootstrap 😎</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 2: O GRID SYSTEM (12 COLUNAS) -->
+        <section class="p-8 bg-blue-50">
+            <div class="flex justify-between items-center mb-4">
+                 <h2 class="text-2xl font-bold text-[#0d6efd] flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                    O Sistema de Grid
+                </h2>
+                <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded">12 Colunas</span>
+            </div>
+
+            <p class="text-sm text-gray-600 mb-4">A tela é dividida em <strong>12 partes verticais</strong>. A matemática é simples: a soma das colunas na linha deve dar 12.</p>
+            
+            <div class="space-y-2 mb-6 font-mono text-xs">
+                <!-- Linha 1 -->
+                <div class="flex gap-2 relative">
+                    <div class="grid-demo-col w-full">.col-12 (100%)</div>
+                    <span class="absolute right-[-40px] top-1 text-gray-400 text-[10px]">= 12</span>
+                </div>
+                <!-- Linha 2 -->
+                <div class="flex gap-2 relative">
+                    <div class="grid-demo-col w-1/2">.col-6 (50%)</div>
+                    <div class="grid-demo-col w-1/2">.col-6 (50%)</div>
+                    <span class="absolute right-[-40px] top-1 text-gray-400 text-[10px]">6+6=12</span>
+                </div>
+                <!-- Linha 3 -->
+                <div class="flex gap-2 relative">
+                    <div class="grid-demo-col w-1/3">.col-4</div>
+                    <div class="grid-demo-col w-1/3">.col-4</div>
+                    <div class="grid-demo-col w-1/3">.col-4</div>
+                    <span class="absolute right-[-40px] top-1 text-gray-400 text-[10px]">4+4+4</span>
+                </div>
+                <!-- Linha 4 -->
+                <div class="flex gap-2 relative">
+                    <div class="grid-demo-col w-[25%]">.col-3</div>
+                    <div class="grid-demo-col w-[50%] bg-blue-100 border-blue-300 text-blue-800">.col-6</div>
+                    <div class="grid-demo-col w-[25%]">.col-3</div>
+                    <span class="absolute right-[-40px] top-1 text-gray-400 text-[10px]">3+6+3</span>
+                </div>
+            </div>
+
+            <div class="bg-white p-4 rounded border border-blue-100 text-sm text-gray-600 flex gap-4 items-start">
+                <div class="flex-1">
+                    <strong>Sintaxe Mágica:</strong> <code>class="col-md-6"</code>
+                    <br>Significa: "Ocupe 6 colunas (50%) a partir de telas médias (md). Em telas menores, ocupe tudo (12)."
+                </div>
+                <!-- GIF 2: Mind Blown -->
+                <img src="https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif" class="w-16 h-16 rounded object-cover" alt="Mind Blown" onerror="this.style.display='none'">
+            </div>
+        </section>
+
+        <!-- SEÇÃO 3: EXEMPLOS REAIS (ANTES vs DEPOIS) - NEW -->
+        <section class="p-8 border-b border-gray-100">
+             <h2 class="text-2xl font-bold bs-purple-text mb-6">Exemplos Práticos</h2>
+             
+             <!-- Exemplo 1: Botões -->
+             <div class="mb-8">
+                <h4 class="font-bold text-gray-700 mb-2 text-sm uppercase">1. Botões Coloridos</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-gray-900 p-4 rounded text-xs font-mono text-gray-300 overflow-x-auto">
+                        &lt;button class="<span class="text-blue-400">btn btn-primary</span>"&gt;Salvar&lt;/button&gt;<br>
+                        &lt;button class="<span class="text-green-400">btn btn-success</span>"&gt;Enviar&lt;/button&gt;<br>
+                        &lt;button class="<span class="text-red-400">btn btn-danger</span>"&gt;Deletar&lt;/button&gt;
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded border border-gray-200 flex items-center gap-2 justify-center">
+                        <span class="fake-btn fake-btn-primary">Salvar</span>
+                        <span class="fake-btn fake-btn-success">Enviar</span>
+                        <span class="fake-btn fake-btn-danger">Deletar</span>
+                    </div>
+                </div>
+             </div>
+
+             <!-- Exemplo 2: Card -->
+             <div>
+                <h4 class="font-bold text-gray-700 mb-2 text-sm uppercase">2. O Famoso "Card"</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-gray-900 p-4 rounded text-xs font-mono text-gray-300 overflow-x-auto">
+                        &lt;div class="<span class="text-yellow-400">card</span>" style="width: 18rem;"&gt;<br>
+                        &nbsp;&nbsp;&lt;img src="..." class="<span class="text-yellow-400">card-img-top</span>"&gt;<br>
+                        &nbsp;&nbsp;&lt;div class="<span class="text-yellow-400">card-body</span>"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;h5 class="<span class="text-yellow-400">card-title</span>"&gt;Título&lt;/h5&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;p class="<span class="text-yellow-400">card-text</span>"&gt;Texto aqui.&lt;/p&gt;<br>
+                        &nbsp;&nbsp;&lt;/div&gt;<br>
+                        &lt;/div&gt;
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded border border-gray-200 flex items-center justify-center">
+                        <!-- Simulação Visual do Card -->
+                        <div class="bg-white rounded border border-gray-300 shadow-sm w-48 overflow-hidden">
+                            <div class="h-24 bg-gray-300 flex items-center justify-center text-gray-500 text-xs">Imagem</div>
+                            <div class="p-3">
+                                <h5 class="font-bold mb-1">Título</h5>
+                                <p class="text-xs text-gray-600">Um exemplo simples de card do Bootstrap.</p>
+                                <span class="fake-btn fake-btn-primary text-xs mt-2 py-1 px-2">Ver mais</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <!-- SEÇÃO 4: BREAKPOINTS (Responsividade) -->
+        <section class="p-8">
+            <h2 class="text-2xl font-bold bs-purple-text mb-6">Breakpoints (Pontos de Quebra)</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                
+                <!-- Card XS -->
+                <div class="border border-gray-200 rounded p-3 text-center hover:shadow-md transition">
+                    <div class="text-2xl mb-1">📱</div>
+                    <h4 class="font-bold text-gray-700">Extra Small</h4>
+                    <code class="text-xs bg-gray-100 p-1 rounded block mt-1">None (&lt;576px)</code>
+                    <p class="text-[10px] text-gray-500 mt-1">Padrão (celular vertical)</p>
+                </div>
+
+                <!-- Card SM -->
+                <div class="border border-gray-200 rounded p-3 text-center hover:shadow-md transition">
+                    <div class="text-2xl mb-1">📲</div>
+                    <h4 class="font-bold text-gray-700">Small (sm)</h4>
+                    <code class="text-xs bg-gray-100 p-1 rounded block mt-1">≥ 576px</code>
+                    <p class="text-[10px] text-gray-500 mt-1">Celulares grandes</p>
+                </div>
+
+                <!-- Card MD -->
+                <div class="border border-gray-200 rounded p-3 text-center hover:shadow-md transition bg-purple-50 border-purple-200 transform scale-105 shadow-lg">
+                    <div class="absolute -top-3 -right-3 bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-full animate-bounce">TOP!</div>
+                    <div class="text-2xl mb-1">📟</div>
+                    <h4 class="font-bold text-gray-700">Medium (md)</h4>
+                    <code class="text-xs bg-gray-100 p-1 rounded block mt-1">≥ 768px</code>
+                    <p class="text-[10px] text-gray-500 mt-1">Tablets (Ponto chave)</p>
+                </div>
+
+                <!-- Card LG -->
+                <div class="border border-gray-200 rounded p-3 text-center hover:shadow-md transition">
+                    <div class="text-2xl mb-1">💻</div>
+                    <h4 class="font-bold text-gray-700">Large (lg)</h4>
+                    <code class="text-xs bg-gray-100 p-1 rounded block mt-1">≥ 992px</code>
+                    <p class="text-[10px] text-gray-500 mt-1">Laptops / Desktops</p>
+                </div>
+
+                <!-- Card XL -->
+                <div class="border border-gray-200 rounded p-3 text-center hover:shadow-md transition">
+                    <div class="text-2xl mb-1">🖥️</div>
+                    <h4 class="font-bold text-gray-700">X-Large (xl)</h4>
+                    <code class="text-xs bg-gray-100 p-1 rounded block mt-1">≥ 1200px</code>
+                    <p class="text-[10px] text-gray-500 mt-1">Monitores Wide</p>
+                </div>
+
+                <!-- Card XXL -->
+                <div class="border border-gray-200 rounded p-3 text-center hover:shadow-md transition">
+                    <div class="text-2xl mb-1">📺</div>
+                    <h4 class="font-bold text-gray-700">XXL</h4>
+                    <code class="text-xs bg-gray-100 p-1 rounded block mt-1">≥ 1400px</code>
+                    <p class="text-[10px] text-gray-500 mt-1">Telas Gigantes</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 5: CHEAT SHEET -->
+        <section class="p-8 bg-gray-800 text-white">
+            <h2 class="text-2xl font-bold mb-6 text-white flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                Utilitários Essenciais
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Cores -->
+                <div>
+                    <h3 class="text-sm uppercase tracking-wide opacity-70 mb-3 border-b border-gray-600 pb-1">Cores Semânticas</h3>
+                    <div class="space-y-2 font-mono text-sm">
+                        <div class="flex items-center gap-3">
+                            <div class="w-4 h-4 rounded-full bs-primary-bg"></div>
+                            <span class="text-blue-300">.text-primary</span>
+                            <span class="opacity-50 text-xs ml-auto">Ação Principal</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-4 h-4 rounded-full bs-success-bg"></div>
+                            <span class="text-green-400">.text-success</span>
+                            <span class="opacity-50 text-xs ml-auto">Sucesso/Validado</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-4 h-4 rounded-full bs-danger-bg"></div>
+                            <span class="text-red-400">.text-danger</span>
+                            <span class="opacity-50 text-xs ml-auto">Erro/Perigo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Espaçamento -->
+                <div>
+                    <h3 class="text-sm uppercase tracking-wide opacity-70 mb-3 border-b border-gray-600 pb-1">Espaçamento (Margin/Padding)</h3>
+                    <div class="bg-gray-900 p-3 rounded font-mono text-xs space-y-2">
+                        <div class="flex justify-between">
+                            <code class="text-pink-400">m-3</code>
+                            <span>Margin: 1rem (todos)</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <code class="text-pink-400">pt-5</code>
+                            <span>Padding-Top: 3rem</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <code class="text-pink-400">px-2</code>
+                            <span>Padding X (esq/dir)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER: LINK OFICIAL -->
+        <footer class="bg-gray-100 p-8 text-center">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Quer virar expert?</h3>
+            <p class="text-gray-600 mb-6 max-w-md mx-auto">A documentação é a bíblia do desenvolvedor. Se tiver dúvida, vá direto na fonte.</p>
+            
+            <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/" target="_blank" class="inline-flex items-center gap-2 bs-purple-bg text-white font-bold py-3 px-8 rounded-full hover:opacity-90 transition transform hover:scale-105 shadow-lg no-underline">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M1.333 0h13.334A1.333 1.333 0 0 1 16 1.333v13.334A1.333 1.333 0 0 1 14.667 16H1.333A1.333 1.333 0 0 1 0 14.667V1.333A1.333 1.333 0 0 1 1.333 0zM2.5 4a.5.5 0 0 0 0 1h11a.5.5 0 0 0 0-1h-11zm0 3a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1h-6zm0 3a.5.5 0 0 0 0 1h11a.5.5 0 0 0 0-1h-11z"/>
+                </svg>
+                Acessar Documentação Oficial
+            </a>
+            
+            <p class="text-xs text-gray-400 mt-8">Feito com ❤️ (e HTML/CSS)</p>
+        </footer>
+
+    </div>
+</body>
+</html>

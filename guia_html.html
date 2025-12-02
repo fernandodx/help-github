@@ -42,6 +42,13 @@
             max-width: 100%;
             height: auto;
         }
+        .lib-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .lib-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-300">
@@ -221,6 +228,30 @@
                 </ul>
             </section>
             
+            <!-- NOVA SEÇÃO: Estudo de Libs -->
+            <section class="infographic-section p-6 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold mb-4 border-b border-gray-700 pb-3 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-orange-400"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+                    Estudo de Bibliotecas (Libs) e Frameworks
+                </h2>
+                <p class="mb-6">Embora HTML e CSS puros sejam fundamentais, no mundo real usamos "bibliotecas" (libs) e frameworks para acelerar o desenvolvimento. Eles são conjuntos de códigos prontos que nos ajudam a criar layouts bonitos e responsivos muito mais rápido.</p>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Card Bootstrap -->
+                    <a href="info_grafico_bootstrap.html" class="lib-card block bg-gray-800 rounded-lg p-6 border border-gray-700">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 rounded-full bg-purple-600 flex items-center justify-center text-white font-bold text-xl mr-3">B</div>
+                            <h3 class="text-xl font-bold text-white">Bootstrap</h3>
+                        </div>
+                        <p class="text-sm text-gray-400 mb-4">O framework CSS mais popular do mundo. Aprenda a usar seu sistema de grid, botões prontos, barras de navegação e muito mais, apenas copiando e colando classes.</p>
+                        <span class="text-purple-400 text-sm font-semibold flex items-center">
+                            Ver guia completo
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </span>
+                    </a>
+                </div>
+            </section>
+
             <!-- Referências -->
             <section class="infographic-section p-6 rounded-lg shadow-lg">
                 <h2 class="text-3xl font-bold mb-4 border-b border-gray-700 pb-3 text-white">
